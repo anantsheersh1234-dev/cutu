@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Baby ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background:#fff7f8;
+    padding:30px;
+    text-align:center;
+}
+
+.message{
+    max-width:900px;
+    font-size:1.2rem;
+    line-height:1.8;
+    color:#333;
+}
+
+button{
+    margin-top:30px;
+    padding:14px 30px;
+    border:none;
+    border-radius:12px;
+    background:#ff7aa2;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff5d8d;
+}
+
+.food-container{
+    margin-top:35px;
+    display:none;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.food-container img{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:18px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.food-container img:hover{
+    transform:scale(1.05);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.25);
+    overflow:hidden;
+}
+
+.overlay img{
+    width:250px;
+    border-radius:20px;
+    animation:growAndFade 6s forwards;
+}
+
+@keyframes growAndFade{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    70%{
+        transform:scale(8);
+        opacity:1;
+    }
+    100%{
+        transform:scale(12);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="message">
+    <p>
+        Welcome baby ❤️<br><br>
+
+        Ik you're tired. You did really well and I'm proud of you.
+        Ik aapne mehnat kri hai tests k liye. I'm the witness.
+        I've seen you waking up late to prepare even after ghr k itne kaam krke.
+        Khana aap banare ho phir thak jate ho lekin you still study.
+        And ik you'll definitely make it big baby.
+        I love you so much ❤️
+
+        Thanks for being like this and being with me and I'm sure it's forever.
+
+        <br><br>
+        Yeh lo, aap thak gye honge toh neeche click kro 👇
+    </p>
+</div>
+
+<button id="showFoods">Click Here ❤️</button>
+
+<div class="food-container" id="foods">
+    <img
+        src="https://www.vegrecipesofindia.com/wp-content/uploads/2014/11/frankie-recipe-4.jpg?w=800"
+        alt="frankie"
+        class="foodChoice"
+    >
+
+    <img
+        src="https://i0.wp.com/binjalsvegkitchen.com/wp-content/uploads/2025/05/Veg-Kofta-Biryani-H1.jpg?w=800"
+        alt="Veg Kofta Biryani"
+        class="foodChoice"
+    >
+</div>
+
+<div class="overlay" id="overlay">
+    <img
+        src="C:\Users\anant\Downloads\New folder (3)\finalimage.png?w=1200"
+        alt="Surprise Food"
+        id="finalImage"
+    >
+</div>
+
+<script>
+const btn = document.getElementById("showFoods");
+const foods = document.getElementById("foods");
+const overlay = document.getElementById("overlay");
+const foodChoices = document.querySelectorAll(".foodChoice");
+
+btn.addEventListener("click", () => {
+    foods.style.display = "flex";
+    btn.style.display = "none";
+});
+
+foodChoices.forEach(food => {
+    food.addEventListener("click", () => {
+
+        overlay.style.display = "flex";
+
+        const img = document.getElementById("finalImage");
+
+        img.style.animation = "none";
+        void img.offsetWidth;
+        img.style.animation = "growAndFade 6s forwards";
+
+        setTimeout(() => {
+            overlay.style.display = "none";
+        }, 6000);
+    });
+});
+</script>
+
+</body>
+</html>
